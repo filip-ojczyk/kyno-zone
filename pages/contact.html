@@ -17,8 +17,8 @@
             });
         </script>
 
-        <link href="/img/logo.png" rel="shortcut icon" type="image/x-icon"/>
-        <link href="/img/logo.png" rel="apple-touch-icon"/>
+        <link href="/img/fav.png" rel="shortcut icon" type="image/x-icon"/>
+        <link href="/img/fav.png" rel="apple-touch-icon"/>
 </head>
 
 <body>
@@ -93,12 +93,11 @@
               </div>
 </header>
 
-
 <!--Sekcja formularza kontaktowego-->
-<section class="section hero top-default" class="hero-section" data-aos="fade-up" data-aos-duration="1000">
+<section class="section hero top-default" data-aos="fade-up" data-aos-duration="1000">
   <div class="w-layout-blockcontainer container-default w-container">
     <div class="w-layout-grid grid-2-columns contact-v1-hero-grid">
-      
+
       <div class="inner-container _500px _100-tablet">
         <h1 class="display-10 strong title">Umów się na spotkanie</h1>
         <p class="mg-top-small mg-bottom-large">
@@ -153,11 +152,11 @@
 
       <div class="card form-card">
         <div class="form-wrapper main-contact-form w-form" id="w-node-_8ddc0835-2d87-7604-48ab-9bc6f6f6f4c8-41ea6f63">
-          
+
           <!-- FORMULARZ z MailerSend -->
           <form id="contact-form">
             <div class="w-layout-grid grid-form">
-              
+
               <div>
                 <label for="Name-20">Imię</label>
                 <input class="input w-input" type="text" id="Name-20" name="Name" maxlength="256" placeholder="Jan Kowalski" required />
@@ -183,6 +182,7 @@
                     <option value="Socjalizacja szczeniąt">Socjalizacja szczeniąt</option>
                     <option value="Trening nosework">Trening nosework</option>
                     <option value="Konkretny problem">Konkretny problem</option>
+                    <option value="Wynajęcie placu agility">Wynajęcie placu agility</option>
                   </select>
                   <div class="select-icon-wrapper">
                     <div class="icon-font-rounded"></div>
@@ -219,10 +219,10 @@
           <div class="error-message-wrapper w-form-fail" tabindex="-1" role="region" aria-label="Contact V1 Form failure" style="display:none;">
             <div>Ups! Coś poszło nie tak.</div>
           </div>
-          
+
         </div>
       </div>
-      
+
     </div>
   </div>
 </section>
@@ -281,39 +281,28 @@
   });
 </script>
 
-
-
-
-
 <!--Sekcja LEWA STRONA: MAPA -->
-<section class="section hero top-default bg-section-secondary" class="hero-section" data-aos="fade-up" data-aos-duration="1000">
+<section class="section hero top-default bg-section-secondary" data-aos="fade-up" data-aos-duration="1000">
   <div class="w-layout-blockcontainer container-default w-container">
     <div class="w-layout-grid grid-2-columns contact-v1-hero-grid">
 
-      <div 
-        data-w-id="8ddc0835-2d87-7604-48ab-9bc6f6f6f4c7"
-        style="opacity: 1;"
-      >
-        <div class="form-wrapper main-contact-form w-form" id="w-node-_8ddc0835-2d87-7604-48ab-9bc6f6f6f4c8-41ea6f63">
-          <div style="border-radius: 12px; overflow: hidden;">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2562.051331754972!2d18.5495832!3d50.0478697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47114f7f80bf78fd%3A0x46b47cdde31be405!2sSzkolenie%20ps%C3%B3w%20Kyno%20Zone!5e0!3m2!1spl!2spl!4v1755389134600!5m2!1spl!2spl"
-              width="100%"
-              height="450"
-              frameborder="0"
-              style="border:0;"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
+      <div>
+        <div class="card map-card">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2562.051331754972!2d18.5495832!3d50.0478697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47114f7f80bf78fd%3A0x46b47cdde31be405!2sSzkolenie%20ps%C3%B3w%20Kyno%20Zone!5e0!3m2!1spl!2spl!4v1755389134600!5m2!1spl!2spl"
+            width="100%"
+            height="450"
+            frameborder="0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
       </div>
 
       <!-- PRAWA STRONA: TEKST -->
-      <div 
-        data-w-id="50386297-c8f1-45c6-db65-1fcbee9881f2"
-        style="transform: translate3d(0px, 0%, 0px) scale3d(1, 1, 1); opacity: 1; transform-style: preserve-3d;"
+      <div
+
         class="inner-container _500px _100-tablet"
       >
         <h2 class="display-8 strong mg-bottom-small title-dec">Dojazd i dane firmy</h2>
@@ -321,29 +310,32 @@
           Masz pytania, potrzebujesz porady lub chcesz się umówić? Kliknij na mapkę, by zobaczyć lokalizację i skontaktuj się ze mną.
         </p>
 
-        <div class="display-2 semibold">
-          <div class="w-layout-grid grid-1-column x-align-left">
-
-            <a href="https://maps.app.goo.gl/WYmCaqc4miRdGUG29" target="_blank" class="text-decoration-none w-inline-block">
-              <div class="w-layout-grid grid-auto---1fr">
-                <div>
-                  <div class="avatar-wrapper _64px">
-                    <img 
-                      src="https://cdn.prod.website-files.com/6614055ffed6aec1f0c79429/66141f613264496a8889789a_location-purple-circle-pet-x-webflow-template.svg" 
-                      alt="" 
-                      class="avatar-image circle"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <div>Polska, Śląskie <br/>44-264 Jankowice Rybnickie ul. Kościelna</div>
-                </div>
+        <a href="https://maps.app.goo.gl/WYmCaqc4miRdGUG29" target="_blank" class="text-decoration-none w-inline-block display-2 semibold">
+          <div class="w-layout-grid grid-auto---1fr">
+            <div>
+              <div class="avatar-wrapper _64px">
+                <img
+                  src="https://cdn.prod.website-files.com/6614055ffed6aec1f0c79429/66141f613264496a8889789a_location-purple-circle-pet-x-webflow-template.svg"
+                  alt=""
+                  class="avatar-image circle"
+                />
               </div>
-            </a>
-            Kyno Zone Oliwia Kosiorowska<br/>
-            NIP: 6472614103<br/>
-            REGON: 542292359
+            </div>
+            <div>
+              <div>Polska, Śląskie <br/>44-264 Jankowice Rybnickie ul. Kościelna</div>
+            </div>
+          </div>
+        </a>
 
+        <div class="company-info-card mg-top-default">
+          <div class="company-info-name">Kyno Zone Oliwia Kosiorowska</div>
+          <div class="company-info-row">
+            <span class="company-info-label">NIP</span>
+            <span class="company-info-value">6472614103</span>
+          </div>
+          <div class="company-info-row">
+            <span class="company-info-label">REGON</span>
+            <span class="company-info-value">542292359</span>
           </div>
         </div>
       </div>
@@ -352,40 +344,63 @@
   </div>
 </section>
 
-
 <!--Sekcja Zdjęcia-->
-<section class="section top-130px hr-divider" class="hero-section" data-aos="fade-up" data-aos-duration="1000">
+<section class="section top-130px hr-divider" data-aos="fade-up" data-aos-duration="1000">
   <div class="w-layout-blockcontainer container-default w-container">
     <div class="w-layout-grid grid-2-columns location-grid-2-col">
 
       <div class="text-block">
         <h2 class="display-8 strong mg-bottom-small title-dec">Zobacz nasz plac treningowy</h2>
-        <p>Przyjdź i zobacz nasze miejsce pracy! Psiaki czują się tutaj świetnie!.</p>
+        <p>Przyjdź i zobacz nasze miejsce pracy! Psiaki czują się tutaj świetnie!</p>
       </div>
 
       <div class="slider-wrapper" role="region" aria-label="carousel">
         <div class="slider">
 
-          <div class="slide" aria-label="1 of 3" role="group" aria-hidden="false">
+          <div class="slide" aria-label="1 of 6" role="group" aria-hidden="false">
+            <img
+              src="/img/dzialka_main.jpeg"
+              alt="Plac treningowy Kyno Zone"
+              class="slide-image"
+            />
+          </div>
+
+                    <div class="slide" aria-label="2 of 6" role="group" aria-hidden="true">
+            <img
+              src="/img/arrow-tunel.jpg"
+              alt="Plac treningowy Kyno Zone"
+              class="slide-image"
+            />
+          </div>
+
+                    <div class="slide" aria-label="3 of 6" role="group" aria-hidden="true">
+            <img
+              src="/img/dzialka4.png"
+              alt="Plac treningowy Kyno Zone"
+              class="slide-image"
+            />
+          </div>
+
+          <div class="slide" aria-label="4 of 6" role="group" aria-hidden="true">
             <img
               src="/img/dzialka1.jpg"
-              alt="garden"
+              alt="Plac treningowy Kyno Zone"
               class="slide-image"
             />
           </div>
 
-          <div class="slide" aria-label="2 of 3" role="group" aria-hidden="true">
+          <div class="slide" aria-label="5 of 6" role="group" aria-hidden="true">
             <img
               src="/img/dzialka2.jpg"
-              alt="Zdjęcie wkrótce"
+              alt="Plac treningowy Kyno Zone"
               class="slide-image"
             />
           </div>
 
-          <div class="slide" aria-label="3 of 3" role="group" aria-hidden="true">
+          <div class="slide" aria-label="6 of 6" role="group" aria-hidden="true">
             <img
               src="/img/dzialka3.jpg"
-              alt="Zdjęcie wkrótce"
+              alt="Plac treningowy Kyno Zone"
               class="slide-image"
             />
           </div>
@@ -395,11 +410,25 @@
         <button class="slider-arrow left" aria-label="Poprzednie zdjęcie"></button>
         <button class="slider-arrow right" aria-label="Następne zdjęcie"></button>
 
-
-        <div class="slider-nav">
-          <button class="slider-dot active" aria-label="Show slide 1 of 3"></button>
-          <button class="slider-dot" aria-label="Show slide 2 of 3"></button>
-          <button class="slider-dot" aria-label="Show slide 3 of 3"></button>
+        <div class="slider-nav" role="tablist">
+          <button class="slider-progress" role="tab" aria-selected="true" aria-label="Pokaż zdjęcie 1 z 4">
+            <span class="slider-progress-fill"></span>
+          </button>
+          <button class="slider-progress" role="tab" aria-selected="false" aria-label="Pokaż zdjęcie 2 z 4">
+            <span class="slider-progress-fill"></span>
+          </button>
+          <button class="slider-progress" role="tab" aria-selected="false" aria-label="Pokaż zdjęcie 3 z 4">
+            <span class="slider-progress-fill"></span>
+          </button>
+          <button class="slider-progress" role="tab" aria-selected="false" aria-label="Pokaż zdjęcie 4 z 4">
+            <span class="slider-progress-fill"></span>
+          </button>
+           <button class="slider-progress" role="tab" aria-selected="false" aria-label="Pokaż zdjęcie 4 z 4">
+            <span class="slider-progress-fill"></span>
+          </button>
+           <button class="slider-progress" role="tab" aria-selected="false" aria-label="Pokaż zdjęcie 4 z 4">
+            <span class="slider-progress-fill"></span>
+          </button>
         </div>
       </div>
 
@@ -407,20 +436,18 @@
   </div>
 </section>
 
-
 <!--Sekcja FAQ-->
-<section class="section bottom-130px bg-section-secondary" class="hero-section" data-aos="fade-up" data-aos-duration="1000">
+<section class="section bottom-130px bg-section-secondary" data-aos="fade-up" data-aos-duration="1000">
   <div class="w-layout-blockcontainer container-default w-container">
-    
+
     <div
-      data-w-id="f3605f69-cf70-e398-75fe-bae735196156"
-      style="transform: translate3d(0px, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); opacity: 1; transform-style: preserve-3d;"
+
       class="text-center"
     >
       <h2 class="display-8 strong mg-bottom-small">Najczęściej zadawane pytania</h2>
       <div class="inner-container _576px center">
         <p class="mg-bottom-large">
-          Masz pytania? Spróbuj je znaleźć w sekcji najszczęściej zadawane pytania! 
+          Masz pytania? Spróbuj je znaleźć w sekcji najszczęściej zadawane pytania!
         </p>
       </div>
     </div>
@@ -429,7 +456,7 @@
       <div class="w-layout-grid grid-1-column gap-row-medium">
 
         <!-- Accordion Item 1 -->
-        <div data-w-id="09352887-ac6c-df09-ec4b-e70cf7d7666a" class="accordion-item-wrapper _01" style="opacity: 1;">
+        <div class="accordion-item-wrapper _01">
           <div class="accordion-heading">
             <div class="inner-container _750px">
               <h3 class="display-7 semibold">
@@ -451,9 +478,8 @@
           </div>
         </div>
 
-
         <!-- Accordion Item 2 -->
-        <div data-w-id="09352887-ac6c-df09-ec4b-e70cf7d7666a" class="accordion-item-wrapper _01" style="opacity: 1;">
+        <div class="accordion-item-wrapper _01">
           <div class="accordion-heading">
             <div class="inner-container _750px">
               <h3 class="display-7 semibold">
@@ -476,7 +502,7 @@
         </div>
 
         <!-- Accordion Item 3 -->
-        <div data-w-id="09352887-ac6c-df09-ec4b-e70cf7d7666a" class="accordion-item-wrapper _01" style="opacity: 1;">
+        <div class="accordion-item-wrapper _01">
           <div class="accordion-heading">
             <div class="inner-container _750px">
               <h3 class="display-7 semibold">
@@ -499,7 +525,7 @@
         </div>
 
         <!-- Accordion Item 4 -->
-        <div data-w-id="09352887-ac6c-df09-ec4b-e70cf7d7666a" class="accordion-item-wrapper _01" style="opacity: 1;">
+        <div class="accordion-item-wrapper _01">
           <div class="accordion-heading">
             <div class="inner-container _750px">
               <h3 class="display-7 semibold">
@@ -522,7 +548,7 @@
         </div>
 
        <!-- Accordion Item 5 -->
-        <div data-w-id="09352887-ac6c-df09-ec4b-e70cf7d7666a" class="accordion-item-wrapper _01" style="opacity: 1;">
+        <div class="accordion-item-wrapper _01">
           <div class="accordion-heading">
             <div class="inner-container _750px">
               <h3 class="display-7 semibold">
@@ -550,83 +576,82 @@
   </div> <!-- /container -->
 </section>
 
-
 <!--Sekcja stopka-->
 <footer class="footer-wrapper v1">
                 <div class="w-layout-blockcontainer container-default w-container">
                     <div class="inner-section footer-inner-section">
                         <div class="footer-top v1 z-index-1">
                             <div class="w-layout-grid grid-4-columns footer-grid-4-col">
-                                <div id="w-node-_3c298779-830b-1f87-128d-10c56ccddea2-57241a43" data-w-id="3c298779-830b-1f87-128d-10c56ccddea2" class="inner-container _310px _100-tablet">
+                                <div id="w-node-_3c298779-830b-1f87-128d-10c56ccddea2-57241a43" class="inner-container _310px _100-tablet">
                                     <div class="mg-bottom-small">
                                         <a href="/" class="logo-link w-inline-block">
-                                            <img src="/img/logoo.png" alt="Logo Kynozone"/>
+                                            <img src="/img/logo-footer.png" alt="Logo Kynozone"/>
                                         </a>
                                     </div>
                                     <p>
                                         Copyright © Kynozone | Designed by <a href="#" target="_blank" class="text-decoration-none">Filip Ojczyk</a>
                                     </p>
                                 </div>
-                                <div data-w-id="3c298779-830b-1f87-128d-10c56ccddeac">
+                                <div>
                                     <h3 class="display-5 mg-bottom-default">Pozostałe strony</h3>
                                     <div class="w-layout-grid grid-2-columns main-pages-grid-2-columns">
                                         <ul role="list" class="list-wrapper">
                                             <li class="list-item">
-                                                <a id="w-node-_105c6810-7fd6-918e-ea4c-0a20c47f4eeb-c47f4eeb" data-w-id="105c6810-7fd6-918e-ea4c-0a20c47f4eeb" href="/" class="link w-inline-block">
+                                                <a id="w-node-_105c6810-7fd6-918e-ea4c-0a20c47f4eeb-c47f4eeb" href="/" class="link w-inline-block">
                                                     <div>Home</div>
                                                 </a>
                                             </li>
                                             <li class="list-item">
-                                                <a id="w-node-_105c6810-7fd6-918e-ea4c-0a20c47f4eeb-c47f4eeb" data-w-id="105c6810-7fd6-918e-ea4c-0a20c47f4eeb" href="/pages/about.html" class="link w-inline-block">
+                                                <a id="w-node-_105c6810-7fd6-918e-ea4c-0a20c47f4eeb-c47f4eeb" href="/pages/about.html" class="link w-inline-block">
                                                     <div>O mnie</div>
                                                 </a>
                                             </li>
                                             <li class="list-item">
-                                                <a id="w-node-_105c6810-7fd6-918e-ea4c-0a20c47f4eeb-c47f4eeb" data-w-id="105c6810-7fd6-918e-ea4c-0a20c47f4eeb" href="/pages/services.html" aria-current="page" class="link w-inline-block w--current">
+                                                <a id="w-node-_105c6810-7fd6-918e-ea4c-0a20c47f4eeb-c47f4eeb" href="/pages/services.html" aria-current="page" class="link w-inline-block w--current">
                                                     <div>Usługi</div>
                                                 </a>
                                             </li>
                                             <li class="list-item">
-                                                <a id="w-node-_105c6810-7fd6-918e-ea4c-0a20c47f4eeb-c47f4eeb" data-w-id="105c6810-7fd6-918e-ea4c-0a20c47f4eeb" href="/pages/contact.html" class="link w-inline-block">
+                                                <a id="w-node-_105c6810-7fd6-918e-ea4c-0a20c47f4eeb-c47f4eeb" href="/pages/contact.html" class="link w-inline-block">
                                                     <div>Kontakt</div>
                                                 </a>
                                             </li>
                                             <li class="list-item">
-                                                <a id="w-node-_105c6810-7fd6-918e-ea4c-0a20c47f4eeb-c47f4eeb" data-w-id="105c6810-7fd6-918e-ea4c-0a20c47f4eeb" href="/" class="link w-inline-block">
+                                                <a id="w-node-_105c6810-7fd6-918e-ea4c-0a20c47f4eeb-c47f4eeb" href="/" class="link w-inline-block">
                                                     <div>Blog</div>
                                                 </a>
                                             </li>
                                         </ul>
                                         <ul role="list" class="list-wrapper">
                                             <li class="list-item">
-                                                <a id="w-node-_105c6810-7fd6-918e-ea4c-0a20c47f4eeb-c47f4eeb" data-w-id="105c6810-7fd6-918e-ea4c-0a20c47f4eeb" href="https://www.instagram.com/kyno.zone_sport/" class="link w-inline-block">
+                                                <a id="w-node-_105c6810-7fd6-918e-ea4c-0a20c47f4eeb-c47f4eeb" href="https://www.instagram.com/kyno.zone_sport/" class="link w-inline-block">
                                                     <div>Sklep Dog Agility</div>
                                                 </a>
                                             </li>
                                             <li class="list-item">
-                                                <a id="w-node-_105c6810-7fd6-918e-ea4c-0a20c47f4eeb-c47f4eeb" data-w-id="105c6810-7fd6-918e-ea4c-0a20c47f4eeb" href="/" class="link w-inline-block">
+                                                <a id="w-node-_105c6810-7fd6-918e-ea4c-0a20c47f4eeb-c47f4eeb" href="/" class="link w-inline-block">
                                                     <div>Blog</div>
                                                 </a>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
-                                <div data-w-id="3c298779-830b-1f87-128d-10c56ccddef7">
+                                <div>
                                     <h3 class="display-5 mg-bottom-default">Social media</h3>
                                     <ul role="list" class="list-wrapper">
                                         <li class="list-item">
-                                            <a id="w-node-_105c6810-7fd6-918e-ea4c-0a20c47f4eeb-c47f4eeb" data-w-id="105c6810-7fd6-918e-ea4c-0a20c47f4eeb" href="https://www.instagram.com/kyno.zone/" class="link w-inline-block">
+                                            <a id="w-node-_105c6810-7fd6-918e-ea4c-0a20c47f4eeb-c47f4eeb" href="https://www.instagram.com/oliwia_kosiorowska/" class="link w-inline-block">
                                                 <div>Instagram</div>
                                             </a>
                                         </li>
                                         <li class="list-item">
-                                            <a id="w-node-_105c6810-7fd6-918e-ea4c-0a20c47f4eeb-c47f4eeb" data-w-id="105c6810-7fd6-918e-ea4c-0a20c47f4eeb" href="https://www.facebook.com/profile.php?id=61573740024975" class="link w-inline-block">
+                                            <a id="w-node-_105c6810-7fd6-918e-ea4c-0a20c47f4eeb-c47f4eeb" href="https://www.facebook.com/profile.php?id=61573740024975" class="link w-inline-block">
                                                 <div>Facebook</div>
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
-                                <div id="w-node-_3c298779-830b-1f87-128d-10c56ccddf10-57241a43" data-w-id="3c298779-830b-1f87-128d-10c56ccddf10">
+                                <div id="w-node-_3c298779-830b-1f87-128d-10c56ccddf10-57241a43">
                                     <h3 class="display-5 mg-bottom-default">Skontaktuj się</h3>
                                     <div class="w-layout-grid grid-1-column">
                                         <a href="https://maps.app.goo.gl/QSioALD3vqhDNfGb7" target="_blank" class="text-decoration-none w-inline-block">
@@ -678,13 +703,13 @@
                                 <div class="z-index-1">
                                     <div class="w-layout-grid grid-2-columns footer-card-grid-2-col">
                                         <div class="hidden-on-mobile-landscape"></div>
-                                        <div data-w-id="3c298779-830b-1f87-128d-10c56ccddf20" class="inner-container _636px _100-tablet">
+                                        <div class="inner-container _636px _100-tablet">
                                             <h2 class="display-9 strong mg-bottom-default">Twój psiak gotowy? - Skontaktuj się!</h2>
                                             <div class="buttons-row left">
                                                 <a id="w-node-e9da5fd6-ab44-5b2f-81ad-6e5f36bfab9c-36bfab9c" href="/pages/contact.html" class="primary-button w-inline-block">
                                                     <div>Zarezerwuj konsultację</div>
                                                 </a>
-                                                <a id="w-node-_8613752a-dccf-3d68-682b-f1c016de1eb0-16de1eb0" data-w-id="8613752a-dccf-3d68-682b-f1c016de1eb0" href="/pages/services.html" class="link mid w-inline-block">
+                                                <a id="w-node-_8613752a-dccf-3d68-682b-f1c016de1eb0-16de1eb0" href="/pages/services.html" class="link mid w-inline-block">
                                                     <div>Zobacz wszystkie usługi</div>
                                                     <div class="item-icon-right">
                                                         <div class="icon-font-rounded"></div>
@@ -697,28 +722,18 @@
                                 <div class="footer-card-bg"></div>
                             </div>
                             <div class="footer-image-absolute _01">
-                                <img src="/img/stopka1.png" srcset="/img/stopka1.png 500w, /img/stopka1.png 786w" data-w-id="3c298779-830b-1f87-128d-10c56ccddf2c" sizes="(max-width: 767px) 100vw, (max-width: 1439px) 38vw, 524px" alt="Cat And Dog Image - Pet X Webflow Template"/>
+                                <img src="/img/stopka1.png" srcset="/img/stopka1.png 500w, /img/stopka1.png 786w" sizes="(max-width: 767px) 100vw, (max-width: 1439px) 38vw, 524px" alt="Cat And Dog Image - Pet X Webflow Template"/>
                             </div>
                         </div>
                     </div>
                 </div>
 </footer>
 
-
-
-
-
-
-
-
-
-
-                        
 <!-- AOS JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
 <!-- Twój główny plik JS -->
 <script src="/js/main.js"></script>
-            
+
 </body>
 </html>

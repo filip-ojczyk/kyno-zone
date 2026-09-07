@@ -169,14 +169,6 @@ td, th {
   font-family: webflow-icons !important;
 }
 
-.w-icon-slider-right:before {
-  content: "î";
-}
-
-.w-icon-slider-left:before {
-  content: "î";
-}
-
 .w-icon-nav-menu:before {
   content: "î";
 }
@@ -1181,156 +1173,6 @@ textarea.w-input, textarea.w-select {
 
 .w-background-video--control > [hidden] {
   display: none !important;
-}
-
-.w-slider {
-  text-align: center;
-  clear: both;
-  -webkit-tap-highlight-color: #0000;
-  tap-highlight-color: #0000;
-  background: #ddd;
-  height: 300px;
-  position: relative;
-}
-
-.w-slider-mask {
-  z-index: 1;
-  white-space: nowrap;
-  height: 100%;
-  display: block;
-  position: relative;
-  left: 0;
-  right: 0;
-  overflow: hidden;
-}
-
-.w-slide {
-  vertical-align: top;
-  white-space: normal;
-  text-align: left;
-  width: 100%;
-  height: 100%;
-  display: inline-block;
-  position: relative;
-}
-
-.w-slider-nav {
-  z-index: 2;
-  text-align: center;
-  -webkit-tap-highlight-color: #0000;
-  tap-highlight-color: #0000;
-  height: 40px;
-  margin: auto;
-  padding-top: 10px;
-  position: absolute;
-  inset: auto 0 0;
-}
-
-.w-slider-nav.w-round > div {
-  border-radius: 100%;
-}
-
-.w-slider-nav.w-num > div {
-  font-size: inherit;
-  line-height: inherit;
-  width: auto;
-  height: auto;
-  padding: .2em .5em;
-}
-
-.w-slider-nav.w-shadow > div {
-  box-shadow: 0 0 3px #3336;
-}
-
-.w-slider-nav-invert {
-  color: #fff;
-}
-
-.w-slider-nav-invert > div {
-  background-color: #2226;
-}
-
-.w-slider-nav-invert > div.w-active {
-  background-color: #222;
-}
-
-.w-slider-dot {
-  cursor: pointer;
-  background-color: #fff6;
-  width: 1em;
-  height: 1em;
-  margin: 0 3px .5em;
-  transition: background-color .1s, color .1s;
-  display: inline-block;
-  position: relative;
-}
-
-.w-slider-dot.w-active {
-  background-color: #fff;
-}
-
-.w-slider-dot:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px #fff;
-}
-
-.w-slider-dot:focus.w-active {
-  box-shadow: none;
-}
-
-.w-slider-arrow-left, .w-slider-arrow-right {
-  cursor: pointer;
-  color: #fff;
-  -webkit-tap-highlight-color: #0000;
-  tap-highlight-color: #0000;
-  -webkit-user-select: none;
-  user-select: none;
-  width: 80px;
-  margin: auto;
-  font-size: 40px;
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-}
-
-.w-slider-arrow-left [class^="w-icon-"], .w-slider-arrow-right [class^="w-icon-"], .w-slider-arrow-left [class*=" w-icon-"], .w-slider-arrow-right [class*=" w-icon-"] {
-  position: absolute;
-}
-
-.w-slider-arrow-left:focus, .w-slider-arrow-right:focus {
-  outline: 0;
-}
-
-.w-slider-arrow-left {
-  z-index: 3;
-  right: auto;
-}
-
-.w-slider-arrow-right {
-  z-index: 4;
-  left: auto;
-}
-
-.w-icon-slider-left, .w-icon-slider-right {
-  width: 1em;
-  height: 1em;
-  margin: auto;
-  inset: 0;
-}
-
-.w-slider-aria-label {
-  clip: rect(0 0 0 0);
-  border: 0;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  position: absolute;
-  overflow: hidden;
-}
-
-.w-slider-force-show {
-  display: block !important;
 }
 
 .w-dropdown {
@@ -4778,11 +4620,11 @@ figcaption {
 .slider {
   display: flex;
   transition: transform 0.5s ease;
-  width: 300%; /* 3 slides */
+  /* szerokość i flex-basis slajdów ustawiane dynamicznie w main.js wg liczby zdjęć */
 }
 
 .slide {
-  flex: 0 0 33.3333%;
+  flex: 0 0 100%;
   box-sizing: border-box;
   opacity: 0;
   pointer-events: none;
@@ -4811,55 +4653,287 @@ figcaption {
   transform: scale(1.05);
 }
 
-/* Arrows */
+/* Arrows: szklany, przezroczysty przycisk z blurem, biała obwódka i biała strzałka - 1:1 na całej stronie */
 .slider-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 40px;  /* dostosuj do rozmiaru PNG */
-  height: 40px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: transparent;
-  border: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
   cursor: pointer;
   z-index: 10;
+  transition: background-color .2s ease, transform .2s ease;
+}
+
+.slider-arrow:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-50%) scale(1.06);
+}
+
+.slider-arrow::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
 }
 
 .slider-arrow.left {
-  left: 10px;
-  background-image: url('/img/arrow-left.png');
+  left: 14px;
+}
+
+.slider-arrow.left::before {
+  transform: translate(-35%, -50%) rotate(-135deg);
 }
 
 .slider-arrow.right {
-  right: 10px;
-  background-image: url('/img/arrow-right.png');
+  right: 14px;
 }
 
-.slider-nav {
-  display: flex;
-  justify-content: center;
-  margin-top: 15px;
-  gap: 10px;
+.slider-arrow.right::before {
+  transform: translate(-65%, -50%) rotate(45deg);
+}
+
+/* pasek postępu nakłada się na zdjęcie (jak Instagram Stories) */
+.slider-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0));
   z-index: 5;
-  position: relative;
+  pointer-events: none;
 }
 
-.slider-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #ccc;
+/* selektor .slider-wrapper .slider-nav (zamiast samego .slider-nav) celowo, żeby wygrać
+   specyficznością z późniejszą regułą .slider-nav (paska nawigacji karuzeli opinii) */
+.slider-wrapper .slider-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  z-index: 6;
+  opacity: 1;
+  height: auto;
+  margin-top: 0;
+  padding-top: 0;
+  transform: none;
+}
+
+.slider-progress {
+  flex: 1;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.4);
   border: none;
-  cursor: pointer;
   padding: 0;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 
-.slider-dot.active {
-  background: #333;
+.slider-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  border-radius: 999px;
+  background: #fff;
 }
 
+/* Galeria zdjęć w kartach usług: karta ma stałą wysokość, więc slider i zdjęcie muszą ją wypełnić */
+.card-picture._02 .slider-wrapper {
+  height: 100%;
+}
+
+.card-picture._02 .slider {
+  height: 100%;
+}
+
+.card-picture._02 .slide,
+.card-picture._02 .slide-image {
+  border-radius: 0;
+}
+
+.card-picture._02 .slide-image {
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Sekcja "Dojazd i dane firmy": karta z mapą + karta z danymi firmy */
+.map-card {
+  transition: box-shadow .25s ease, transform .25s ease;
+}
+
+.map-card:hover {
+  box-shadow: 0 8px 24px 0 var(--core--box-shadow--bs-neutral-medium);
+  transform: translateY(-2px);
+}
+
+.map-card iframe {
+  display: block;
+  width: 100%;
+}
+
+.company-info-card {
+  border: var(--components--cards--border-width--bw-regular) solid var(--components--cards--border-color--br-color-default);
+  border-radius: var(--components--cards--border-radius--br-medium);
+  background-color: var(--globals--color--surfaces--02);
+  padding: 20px 24px;
+}
+
+.company-info-name {
+  font-weight: 600;
+  color: var(--globals--color--texts--04);
+  margin-bottom: 12px;
+}
+
+.company-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-top: 1px solid var(--components--cards--border-color--br-color-default);
+}
+
+.company-info-row:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.company-info-label {
+  color: var(--globals--color--texts--03);
+  font-size: 14px;
+}
+
+.company-info-value {
+  color: var(--globals--color--texts--04);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* Pasek z biegnącą Astrą (about.html): sprite pixel-artowy biega w nieskończoność
+   od lewej do prawej i z powrotem, odwracając się przy każdym zawróceniu */
+.astra-run-section {
+  padding: 12px 0 32px;
+  overflow: hidden;
+}
+
+.astra-run-track {
+  --astra-size: 64px;
+  position: relative;
+  height: var(--astra-size);
+}
+
+.astra-run-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--astra-size);
+  height: var(--astra-size);
+  image-rendering: pixelated;
+  animation: astra-run 14s linear infinite;
+}
+
+@keyframes astra-run {
+  0% {
+    left: 0%;
+    transform: scaleX(-1);
+  }
+  49.9% {
+    left: calc(100% - var(--astra-size));
+    transform: scaleX(-1);
+  }
+  50% {
+    left: calc(100% - var(--astra-size));
+    transform: scaleX(1);
+  }
+  99.9% {
+    left: 0%;
+    transform: scaleX(1);
+  }
+  100% {
+    left: 0%;
+    transform: scaleX(-1);
+  }
+}
+
+@media (max-width: 767px) {
+  .astra-run-track {
+    --astra-size: 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .astra-run-image {
+    animation: none;
+    left: 0;
+  }
+}
+
+/* Strzałka pod Astrą sugerująca scroll - tylko desktop, znika po odsłonięciu kolejnej sekcji */
+.scroll-hint {
+  display: none;
+  justify-content: center;
+  margin-top: 8px;
+  opacity: 1;
+  transition: opacity .4s ease;
+}
+
+.scroll-hint.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.scroll-hint-bob {
+  display: inline-block;
+  animation: scroll-hint-bob 1.6s ease-in-out infinite;
+}
+
+.scroll-hint-arrow {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-right: 2px solid var(--globals--color--texts--03);
+  border-bottom: 2px solid var(--globals--color--texts--03);
+  transform: rotate(45deg);
+}
+
+@keyframes scroll-hint-bob {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+@media (min-width: 768px) {
+  .scroll-hint {
+    display: flex;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-hint-bob {
+    animation: none;
+  }
+}
 
 
 
@@ -5029,6 +5103,8 @@ figcaption {
 
 .card._05 {
   padding: 38px var(--components--cards--paddings--pd-default);
+  height: 355px;
+  box-sizing: border-box;
 }
 
 .card._07 {
@@ -6252,6 +6328,15 @@ figcaption {
   padding-left: 0;
   list-style-type: none;
   display: flex;
+}
+
+.benefits-list {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.benefits-list li {
+  margin-bottom: 8px;
 }
 
 .list-item-bullet {

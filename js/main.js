@@ -5,58 +5,6 @@ AOS.init();
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Liczniki
-  const counters = document.querySelectorAll('.counter');
-  let animated = false;
-
-  function resetCounters() {
-    counters.forEach(counter => {
-      counter.textContent = '0';
-    });
-  }
-
-  function animateCounters() {
-    counters.forEach(counter => {
-      const target = +counter.getAttribute('data-target');
-      const duration = 2000;
-      const startTime = performance.now();
-
-      function update(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        counter.textContent = Math.floor(progress * target);
-
-        if (progress < 1) {
-          requestAnimationFrame(update);
-        } else {
-          counter.textContent = target;
-        }
-      }
-
-      requestAnimationFrame(update);
-    });
-  }
-
-  function isInViewport(el) {
-    const rect = el.getBoundingClientRect();
-    return rect.top < window.innerHeight && rect.bottom >= 0;
-  }
-
-  function checkAndAnimate() {
-    const trigger = document.querySelector('.about-stats-grid');
-    if (trigger && isInViewport(trigger) && !animated) {
-      animated = true;
-      animateCounters();
-    }
-  }
-
-  resetCounters();
-  window.addEventListener('scroll', checkAndAnimate);
-  window.addEventListener('load', checkAndAnimate);
-
-
-
-  
   // Hamburger menu
   const hamburger = document.querySelector(".hamburger-menu");
   const navMenu = document.querySelector(".nav-menu-wrapper");
@@ -82,47 +30,73 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-//zmiana zdjęć w galeri
+//zmiana zdjęć w galerii + progress bary (auto-play jak w Instagram Stories)
+//obsługuje dowolną liczbę galerii (.slider-wrapper) na jednej stronie
 document.addEventListener("DOMContentLoaded", () => {
-  const slides = document.querySelectorAll(".slide");
-  const prevBtn = document.querySelector(".slider-arrow.left");
-  const nextBtn = document.querySelector(".slider-arrow.right");
-  const dots = document.querySelectorAll(".slider-dot");
-  const slider = document.querySelector(".slider");
+  const SLIDE_DURATION = 7000;
 
-  let currentIndex = 0;
+  document.querySelectorAll(".slider-wrapper").forEach((wrapper) => {
+    const slider = wrapper.querySelector(".slider");
+    const slides = wrapper.querySelectorAll(".slide");
+    if (!slider || !slides.length) return;
 
-  function showSlide(index) {
-    if (index < 0) index = slides.length - 1;
-    if (index >= slides.length) index = 0;
-    currentIndex = index;
+    const prevBtn = wrapper.querySelector(".slider-arrow.left");
+    const nextBtn = wrapper.querySelector(".slider-arrow.right");
+    const progressBtns = wrapper.querySelectorAll(".slider-progress");
 
-    slides.forEach((slide, i) => {
-      slide.setAttribute("aria-hidden", i !== index);
+    // szerokość slidera i slajdów liczona dynamicznie, żeby każda galeria mogła mieć inną liczbę zdjęć
+    slider.style.width = `${slides.length * 100}%`;
+    slides.forEach((slide) => {
+      slide.style.flex = `0 0 ${100 / slides.length}%`;
     });
 
-    slider.style.transform = `translateX(-${(index * 100) / slides.length}%)`;
+    let currentIndex = 0;
+    let autoplayTimer = null;
 
-    dots.forEach((dot, i) => {
-      dot.classList.toggle("active", i === index);
+    function setFill(i) {
+      const fill = progressBtns[i].querySelector(".slider-progress-fill");
+      fill.style.transition = "none";
+      if (i < currentIndex) {
+        fill.style.width = "100%";
+      } else if (i > currentIndex) {
+        fill.style.width = "0%";
+      } else {
+        fill.style.width = "0%";
+        void fill.offsetWidth; // wymuś reflow przed startem animacji
+        fill.style.transition = `width ${SLIDE_DURATION}ms linear`;
+        fill.style.width = "100%";
+      }
+    }
+
+    function showSlide(index) {
+      if (index < 0) index = slides.length - 1;
+      if (index >= slides.length) index = 0;
+      currentIndex = index;
+
+      slides.forEach((slide, i) => {
+        slide.setAttribute("aria-hidden", i !== index);
+      });
+
+      slider.style.transform = `translateX(-${(index * 100) / slides.length}%)`;
+
+      progressBtns.forEach((btn, i) => {
+        btn.setAttribute("aria-selected", i === index);
+        setFill(i);
+      });
+
+      clearTimeout(autoplayTimer);
+      autoplayTimer = setTimeout(() => showSlide(currentIndex + 1), SLIDE_DURATION);
+    }
+
+    if (prevBtn) prevBtn.addEventListener("click", () => showSlide(currentIndex - 1));
+    if (nextBtn) nextBtn.addEventListener("click", () => showSlide(currentIndex + 1));
+
+    progressBtns.forEach((btn, i) => {
+      btn.addEventListener("click", () => showSlide(i));
     });
-  }
 
-  prevBtn.addEventListener("click", () => {
-    showSlide(currentIndex - 1);
+    showSlide(0);
   });
-
-  nextBtn.addEventListener("click", () => {
-    showSlide(currentIndex + 1);
-  });
-
-  dots.forEach((dot, i) => {
-    dot.addEventListener("click", () => {
-      showSlide(i);
-    });
-  });
-
-  showSlide(0);
 });
 
 
@@ -183,6 +157,26 @@ accordionItems.forEach((item) => {
       });
     }
   });
+});
+
+
+
+//strzałka "scrolluj niżej" pod biegnącą Astrą (about.html) - znika, gdy kolejna sekcja jest widoczna
+document.addEventListener("DOMContentLoaded", () => {
+  const scrollHint = document.getElementById("scroll-hint");
+  const nextSection = document.getElementById("about-photos-section");
+  if (!scrollHint || !nextSection) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        scrollHint.classList.toggle("is-hidden", entry.isIntersecting);
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  observer.observe(nextSection);
 });
 
 
