@@ -5102,9 +5102,21 @@ figcaption {
 }
 
 .card._05 {
+  position: relative;
   padding: 38px var(--components--cards--paddings--pd-default);
   height: 355px;
   box-sizing: border-box;
+}
+
+.card-link-arrow {
+  position: absolute;
+  right: var(--components--cards--paddings--pd-default);
+  bottom: 20px;
+}
+
+.card-link-arrow .icon-font-rounded {
+  font-size: 20px;
+  color: var(--components--titles-paragraphs--text-paragraphs);
 }
 
 .card._07 {
@@ -9466,7 +9478,7 @@ display: none; /* ukryj menu */
 .bg-floating-image.home-v2-floating-image {
   width: 624px;
   max-width: 50%;
-  inset: auto 0% 0% auto;
+  inset: 0% 0% auto auto;
 }
 
 .bottom-126px {
